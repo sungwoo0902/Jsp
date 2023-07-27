@@ -3,7 +3,7 @@
 	String sessid = (String) session.getAttribute("sessid");
 
 	if(sessid == null){
-		response.sendRedirect("../2_Session.jsp");
+		response.sendRedirect("./loginForm.jsp");
 		return;
 	}
 %>
