@@ -1,5 +1,5 @@
-<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
@@ -17,10 +17,10 @@
 	String user = "root";
 	String pass = "1234";
 	
-	try{
-		Class.forName("com.mysql.cj.jdbc.Dirver");
+	try {
+		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection conn = DriverManager.getConnection(host, user, pass);
-		PreparedStatement psmt = conn.prepareStatement("UPDATE `user1` SET `name`=?, `hp`=?, `age`=? WHERE `uid`= ?");
+		PreparedStatement psmt = conn.prepareStatement("UPDATE `user2` SET `name`=?, `hp`=?, `age`=? WHERE `uid`=?");
 		psmt.setString(1, name);
 		psmt.setString(2, hp);
 		psmt.setString(3, age);
@@ -34,5 +34,5 @@
 		e.printStackTrace();
 	}
 	
-	response.sendRedirect("/Ch06/user1/list.jsp");
+	response.sendRedirect("/Ch06/user2/list.jsp");
 %>

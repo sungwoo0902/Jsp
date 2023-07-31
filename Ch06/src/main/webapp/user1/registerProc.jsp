@@ -34,4 +34,3 @@
 
 	response.sendRedirect("/Ch06/user1/list.jsp");
 %>
-%>

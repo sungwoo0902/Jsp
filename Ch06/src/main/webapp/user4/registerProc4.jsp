@@ -6,7 +6,7 @@
 	// 인코딩 설정
 	request.setCharacterEncoding("UTF-8");
 
-	// 전송데이터 수신
+	// 전송 데이터 수신
 	String uid = request.getParameter("uid");
 	String name = request.getParameter("name");
 	String hp = request.getParameter("hp");
@@ -17,16 +17,15 @@
 	String user = "root";
 	String pass = "1234";
 	
-	try{
+	try {
 		Class.forName("com.mysql.cj.jdbc.Dirver");
 		Connection conn = DriverManager.getConnection(host, user, pass);
-		PreparedStatement psmt = conn.prepareStatement("UPDATE `user1` SET `name`=?, `hp`=?, `age`=? WHERE `uid`= ?");
-		psmt.setString(1, name);
-		psmt.setString(2, hp);
-		psmt.setString(3, age);
-		psmt.setString(4, uid);
+		PreparedStatement psmt = conn.prepareStatement("INSERT INTO `user3` VALUES (?, ?, ?, ?)");
+		psmt.setString(1, uid);
+		psmt.setString(2, name);
+		psmt.setString(3, hp);
+		psmt.setString(4, age);
 		psmt.executeUpdate();
-		
 		psmt.close();
 		conn.close();
 		
@@ -34,5 +33,5 @@
 		e.printStackTrace();
 	}
 	
-	response.sendRedirect("/Ch06/user1/list.jsp");
+	response.sendRedirect("/Ch06/user3/list.jsp");
 %>

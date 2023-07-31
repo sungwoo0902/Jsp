@@ -14,5 +14,9 @@
 		<h3>1.JDBC 실습</h3>
 		
 		<a href="/Ch06/user1/register.jsp">User1 CRUD 실습</a>
+		<a href="/Ch06/user2/register2.jsp">User2 CRUD 실습</a>
+		<a href="/Ch06/user3/register3.jsp">User3 CRUD 실습</a>
+		<a href="/Ch06/user4/register4.jsp">User4 CRUD 실습</a>
+		<a href="/Ch06/user5/register5.jsp">User5 CRUD 실습</a>
 	</body>
 </html>

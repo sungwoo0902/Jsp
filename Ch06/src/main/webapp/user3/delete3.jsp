@@ -17,7 +17,7 @@
 	try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection conn = DriverManager.getConnection(host, user, pass);
-	 	PreparedStatement psmt = conn.prepareStatement("DELETE FROM `user1` WHERE `uid`=?");
+	 	PreparedStatement psmt = conn.prepareStatement("DELETE FROM `user3` WHERE `uid`=?");
 	 	psmt.setString(1, uid);
 	 	psmt.executeUpdate();
 	
@@ -27,5 +27,5 @@
 		e.printStackTrace();
 	}
 	
-	response.sendRedirect("/Ch06/user1/list.jsp");
+	response.sendRedirect("/Ch06/user3/list3.jsp");
 %>
