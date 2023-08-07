@@ -10,6 +10,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+//편리한 DB 처리를 위한 헬퍼 클래스
 public class DBHelper {
 
 	protected Connection conn = null;
@@ -23,8 +24,7 @@ public class DBHelper {
 			Context ctx = (Context) new InitialContext().lookup("java:comp/env");
 			DataSource ds = (DataSource) ctx.lookup("jdbc/Jboard");
 			conn = ds.getConnection();
-			
-		}catch(Exception e){
+		}catch (Exception e) {
 			e.printStackTrace();
 		}
 		
@@ -48,4 +48,6 @@ public class DBHelper {
 			conn.close();
 		}
 	}
+	
+	
 }

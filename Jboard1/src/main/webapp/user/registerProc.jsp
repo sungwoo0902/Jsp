@@ -1,4 +1,4 @@
-<%@page import="kr.co.jboard.vo.UserVO"%>
+<%@page import="kr.co.jboard1.vo.UserVO"%>
 <%@page import="kr.co.jboard1.dao.UserDAO"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
@@ -20,7 +20,7 @@
 	String addr1 = request.getParameter("addr1");
 	String addr2 = request.getParameter("addr2");
  	String regip = request.getRemoteAddr();
- 	
+
  	UserVO vo = new UserVO();
  	vo.setUid(uid);
  	vo.setPass(pass1);
@@ -28,11 +28,12 @@
  	vo.setNick(nick);
  	vo.setEmail(email);
  	vo.setHp(hp);
+ 	vo.setZip(zip);
  	vo.setAddr1(addr1);
  	vo.setAddr2(addr2);
  	vo.setRegip(regip);
  	
- 	UserDAO.getInstance().insertUser(vo);
+	UserDAO.getInstance().insertUser(vo);
 	
 	response.sendRedirect("/Jboard1/user/login.jsp");
 

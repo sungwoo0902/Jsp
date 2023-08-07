@@ -1,4 +1,4 @@
-package kr.co.jboard.vo;
+package kr.co.jboard1.vo;
 
 public class TermsVO {
 

@@ -8,10 +8,10 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import kr.co.jboard.vo.TermsVO;
-import kr.co.jboard.vo.UserVO;
 import kr.co.jboard1.db.DBHelper;
 import kr.co.jboard1.db.SQL;
+import kr.co.jboard1.vo.TermsVO;
+import kr.co.jboard1.vo.UserVO;
 
 public class UserDAO extends DBHelper{
 
