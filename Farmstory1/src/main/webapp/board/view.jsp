@@ -24,18 +24,17 @@
 	pageContext.include("./_aside"+group+".jsp");
 %>
 <script>
-	
 	$(function(){
-	
-		$('btnDelete').click(function(){
-				if(confirm('정말 삭제 하시겠습니까?')){
-					return true;
-				}else{
-					return false;
-				}
-		});
+		$('.btnDelete').click(function(){
+			if(confirm('정말 삭제 하시겠습니까?')){
+				return true;	
+			}else{
+				return false;
+			}
+		});	
 	});
-	</script>
+</script>
+
 <section class="view">
     <h3>글보기</h3>
     <table>
@@ -60,7 +59,7 @@
         </tr>
     </table>
     <div>
-        <a href="#" class="btnDelete">삭제</a>
+        <a href="./delete.jsp?group=<%= group %>&cate=<%= cate %>&no=<%= no %>" class="btnDelete">삭제</a>
         <a href="./modify.jsp?group=<%= group %>&cate=<%= cate %>&no=<%= no %>" class="btnModify">수정</a>
         <a href="./list.jsp?group=<%= group %>&cate=<%= cate %>" class="btnList">목록</a>
     </div>
@@ -68,29 +67,29 @@
     <!-- 댓글리스트 -->
     <section class="commentList">
         <h3>댓글목록</h3>
-        <% for(ArticleDTO comment : comments) { %>
+        <% for(ArticleDTO comment : comments){ %>
         <article class="comment">
         	<form action="#" method="post">
         		<input type="hidden" name="no"     value="">
         		<input type="hidden" name="parent" value="">
-             <span>
-                 <span><%= comment.getNick() %></span>
-                 <span><%= comment.getRdate() %></span>
-                 <span></span>
-             </span>
-             <textarea name="comment" readonly></textarea>
+				<span>
+					<span><%= comment.getNick() %></span>
+					<span><%= comment.getRdate() %></span>
+				</span>
+				<textarea name="comment" readonly><%= comment.getContent() %></textarea>
              
-             <% if(sessUser.getUid().equals(comment.getWriter())){ %>
-             <div>
-                 <a href="#" class="del">삭제</a>
-                 <a href="#" class="can">취소</a>
-                 <a href="#" class="mod">수정</a>
-             </div>
-             <% } %>                
+				<% if(sessUser.getUid().equals(comment.getWriter())){ %>
+				<div>
+					<a href="#" class="del">삭제</a>
+					<a href="#" class="can">취소</a>
+					<a href="#" class="mod">수정</a>
+				</div>                
+            	<% } %>
             </form>
         </article>
         <% } %>
-        <% if(comments.isEmpty()) { %>
+        
+        <% if(comments.isEmpty()){ %>
         <p class="empty">등록된 댓글이 없습니다.</p>
         <% } %>
     </section>
