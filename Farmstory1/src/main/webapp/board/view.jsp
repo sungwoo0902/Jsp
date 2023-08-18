@@ -10,7 +10,7 @@
 	
 	// 로그인 여부 확인
 	if(sessUser == null){
-		response.sendRedirect("/Farmstory1/board/list.jsp?success=101&group="+group+"&cate="+cate);
+		response.sendRedirect("/Farmstory1/user/login.jsp?success=101&target=view&group="+group+"&cate="+cate+"&no="+no);
 		return;
 	}
 	
@@ -75,9 +75,11 @@
     <!-- 댓글입력폼 -->
     <section class="commentForm">
         <h3>댓글쓰기</h3>
-        <form action="#" method="post">
-        	<input type="hidden" name="parent" value=""/>
-        	<input type="hidden" name="writer" value=""/>
+        <form action="./proc/commentInsert.jsp" method="post">
+        	<input type="hidden" name="group" value="<%= group %>"/>
+        	<input type="hidden" name="cate" value="<%= cate %>"/>
+        	<input type="hidden" name="parent" value="<%= no %>"/>
+        	<input type="hidden" name="writer" value="<%= sessUser.getUid() %>"/>
             <textarea name="content"></textarea>
             <div>
                 <a href="#" class="btnCancel">취소</a>
