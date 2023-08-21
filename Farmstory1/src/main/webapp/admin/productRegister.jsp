@@ -22,6 +22,9 @@
                                 <option value="1">과일</option>
                                 <option value="2">야채</option>
                                 <option value="3">곡류</option>
+                                <option value="4">육류</option>
+                                <option value="5">생선류</option>
+                                <option value="6">김치/반찬</option>
                             </select>
                         </td>
                     </tr>
