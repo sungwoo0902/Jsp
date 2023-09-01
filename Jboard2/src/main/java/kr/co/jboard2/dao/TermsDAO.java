@@ -7,11 +7,10 @@ import kr.co.jboard2.db.DBHelper;
 import kr.co.jboard2.db.SQL;
 import kr.co.jboard2.dto.TermsDTO;
 
-public class TermsDAO extends DBHelper{
-
+public class TermsDAO extends DBHelper {
+	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	public void insertTerms() {}
 	
 	public TermsDTO selectTerms() {
 		
@@ -20,7 +19,7 @@ public class TermsDAO extends DBHelper{
 		try {
 			conn = getConnection();
 			stmt = conn.createStatement();
-			stmt.executeQuery(SQL.SELECT_TERMS);
+			rs = stmt.executeQuery(SQL.SELECT_TERMS);
 			
 			if(rs.next()) {
 				dto.setTerms(rs.getString(1));
@@ -29,14 +28,11 @@ public class TermsDAO extends DBHelper{
 			close();
 			
 		}catch (Exception e) {
-			logger.error("selectTerms error : " +e.getMessage());
-			
+			logger.error("selectTerms error : " + e.getMessage());
 		}
 		
 		return dto;
 	}
 	
-	public void updateTerms() {}
-	
-	public void deleteTerms() {}
+
 }
